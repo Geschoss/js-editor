@@ -1,0 +1,13 @@
+<div class="wrap" [class.move]="isOpen$ | async">
+    <header class="masthead" role="banner">
+        <div class="container">
+            <h3 class="masthead-title">
+            JS-editor
+            <small>best of the best</small>
+          </h3>
+        </div>
+    </header>
+    <main class="content" role="main">
+        <app-card-view [model]="model$ | async"></app-card-view>
+    </main>
+</div>

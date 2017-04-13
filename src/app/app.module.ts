@@ -4,15 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ImportComponent } from './import/import.component';
-import { DrawComponent } from './draw/draw.component';
-import { EventBusService } from './event-bus.service';
+
+import { SidebarToggleService } from './services/sidebar-toggle.service';
+import { JsonCntService } from './services/json-cnt.service';
+
+
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ContentComponent } from './content/content.component';
+import { SidebarBtnComponent } from './sidebar-btn/sidebar-btn.component';
+import { CardViewComponent } from './card-view/card-view.component';
+import { CardItemComponent } from './card-item/card-item.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImportComponent,
-    DrawComponent,
+    SidebarComponent,
+    ContentComponent,
+    SidebarBtnComponent,
+    CardViewComponent,
+    CardItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +31,8 @@ import { EventBusService } from './event-bus.service';
     HttpModule
   ],
   providers: [
-    EventBusService
+    SidebarToggleService,
+    JsonCntService
   ],
   bootstrap: [AppComponent]
 })

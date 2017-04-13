@@ -1,8 +1,14 @@
-<div *ngIf="model !== null">
-    <div class="content" 
+<div *ngIf="model" class="card-view">
+	<div class="card"
         [ngStyle]="{'background-image': 'url(' + model.backgroundUrl + ')',
                     'width': model['x-size'] + 'px',
                     'height': model['y-size'] + 'px'}">
-        Hello
+
+		<app-card-item *ngFor="let item of model.content"
+						[item]="item">
+
+		</app-card-item>
+
     </div>
+
 </div>
