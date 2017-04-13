@@ -1,0 +1,8 @@
+<div *ngIf="model !== null">
+    <div class="content" 
+        [ngStyle]="{'background-image': 'url(' + model.backgroundUrl + ')',
+                    'width': model['x-size'] + 'px',
+                    'height': model['y-size'] + 'px'}">
+        Hello
+    </div>
+</div>
