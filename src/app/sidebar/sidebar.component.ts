@@ -36,15 +36,15 @@ export class SidebarComponent implements OnInit, AfterViewInit {
         this.invalid = value === ''? false : this.jsonCntService.setModel(value);
     }
 
-    fileImport(event: any) {
-        console.log(event.target.value);
-        console.log(event.target.files);
+    fileWasUpload(files: any) {
+        console.log(files);
+        
         var reader:FileReader = new FileReader();
 
         reader.onloadend = (evt: any) => {
             this.invalid = reader.result === ''? false : this.jsonCntService.setModel(reader.result);
         };
-        reader.readAsBinaryString(event.target.files[0]);
+        reader.readAsBinaryString(files[0]);
     }
 
 }

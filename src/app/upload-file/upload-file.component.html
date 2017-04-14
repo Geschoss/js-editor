@@ -1,0 +1,14 @@
+<div class="upload-container">
+    <input #hiddenInput type="file" class="hiddenInput" 
+                    (change)="fileChange($event)" accept=".json">
+    <div class="dropzone"
+            #dropzone
+            appDropzone
+            [ngClass]="{'file-over': isDragover}">
+                <a class="dropzone-link" 
+                    href="javascript:undefined" 
+                    (click)="hiddenInput.click()">
+                    Импорт файла
+                </a>
+    </div>
+</div>

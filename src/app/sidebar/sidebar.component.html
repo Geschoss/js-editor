@@ -1,13 +1,8 @@
 <div class="sidebar" [class.show]="isOpen$ | async">
     <div class="sidebar-item">
-        <p>Загрузите файл <strong>.json</strong> или напишите ручками</p>
+        <p class="center">Загрузите файл <strong>.json</strong> или напишите ручками</p>
     </div>
-     <div class="sidebar-item">
-        <input  (change)="fileImport($event)"
-                type="file"
-                accept=".json"
-                name="import"/>
-    </div>
+    <app-upload-file (onUpload)="fileWasUpload($event)"></app-upload-file>
     <nav class="sidebar-nav" role="navigation">
         <textarea #textarea
             class="sidebar-textarea"
@@ -20,5 +15,6 @@
         <p *ngIf="invalid" class="invalid-msg center">Не корректный JSON</p>
     </div>
     <footer class="sidebar-item" role="contentinfo">
+        <a href="https://github.com/Geschoss">Geschoss</a>
     </footer>
 </div>

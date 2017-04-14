@@ -1,4 +1,9 @@
 <div class="wrap" [class.move]="isOpen$ | async">
+    <button class="sidebar-toggle"
+                (click)="onClickBtn()"
+                [class.move]="isOpen$ | async">
+        <i class="fa fa-bars" aria-hidden="true"></i> Import
+    </button>
     <header class="masthead" role="banner">
         <div class="container">
             <h3 class="masthead-title">

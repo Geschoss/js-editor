@@ -23,4 +23,9 @@ export class ContentComponent implements OnInit {
 
   	ngOnInit() {
   	}
+
+    onClickBtn() {
+      this.sidebarToggleService.toggleSidebar();
+    }
+
 }

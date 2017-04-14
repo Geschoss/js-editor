@@ -3,8 +3,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class SidebarToggleService {
-	private open: boolean = false;
-	private isOpen$: BehaviorSubject<boolean> = new BehaviorSubject(true);
+	private open: boolean = true;
+	private isOpen$: BehaviorSubject<boolean> = new BehaviorSubject(this.open);
   	constructor() { }
 
   	toggleSidebar(): void {
