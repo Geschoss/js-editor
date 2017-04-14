@@ -15,6 +15,7 @@ import { CardViewComponent } from './card-view/card-view.component';
 import { CardItemComponent } from './card-item/card-item.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { DropzoneDirective } from './dropzone.directive';
+import { DraggableDirective } from './draggable.directive';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { DropzoneDirective } from './dropzone.directive';
     CardItemComponent,
     UploadFileComponent,
     DropzoneDirective,
+    DraggableDirective,
   ],
   imports: [
     BrowserModule,

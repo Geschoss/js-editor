@@ -1,8 +1,8 @@
 <div class="card-item"
+    
 	[ngStyle]="{'font-size': item.size + 'px',
-                    'bottom': item.x + 'px',
-                    'left': item.y + 'px',
                     'font-family': item.font,
-                    'color': item.color}">
+                    'color': item.color}"
+                    (draggable)="onDragStart($event)">
 	{{item.text}}
 </div>
