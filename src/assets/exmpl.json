@@ -1,0 +1,23 @@
+{
+  "backgroundUrl": "http://nakolenke.club/uploads/posts/2016-09/1473248830_kotiki06.jpg",
+  "x-size": 1500,
+  "y-size": 500,
+  "content": [
+    {
+      "text": "first",
+      "x": 100,
+      "y": 59,
+      "size": 54,
+      "color": "#268BD2",
+      "font": "arial, verdana, sans-serif"
+    },
+    {
+      "text": "second",
+      "x": 200,
+      "y": 209,
+      "size": 154,
+      "color": "#BF616A",
+      "font": "arial, verdana, sans-serif"
+    }
+  ]
+}

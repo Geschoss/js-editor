@@ -1,0 +1,22 @@
+.dropzone {
+    padding: 1em;
+    position: relative;
+    border: 2px dashed #9C27B0;
+    border-radius: 4px;
+    background-color: #ffeb3b;
+    min-height: 80px;
+    margin: 1em 2em 2em;
+    text-align: center;
+}
+
+.hiddenInput {
+    display: none;
+}
+
+.file-over {
+    border-color: #F44336
+}
+
+.dropzone-link {
+    color: #9C27B0; 
+}

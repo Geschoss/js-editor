@@ -11,9 +11,11 @@ import { JsonCntService } from './services/json-cnt.service';
 
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
-import { SidebarBtnComponent } from './sidebar-btn/sidebar-btn.component';
 import { CardViewComponent } from './card-view/card-view.component';
 import { CardItemComponent } from './card-item/card-item.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
+import { DropzoneDirective } from './dropzone.directive';
+import { DraggableDirective } from './draggable.directive';
 
 
 @NgModule({
@@ -21,9 +23,11 @@ import { CardItemComponent } from './card-item/card-item.component';
     AppComponent,
     SidebarComponent,
     ContentComponent,
-    SidebarBtnComponent,
     CardViewComponent,
     CardItemComponent,
+    UploadFileComponent,
+    DropzoneDirective,
+    DraggableDirective,
   ],
   imports: [
     BrowserModule,
