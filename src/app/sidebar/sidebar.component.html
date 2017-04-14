@@ -1,6 +1,11 @@
 <div class="sidebar" [class.show]="isOpen$ | async">
     <div class="sidebar-item">
-        <p class="center">Загрузите файл <strong>.json</strong> или напишите ручками</p>
+        <p class="center">Загрузите файл 
+            <strong>.json(
+            <a target="_blank" href="../../assets/exmpl.json">Пример</a>
+            )</strong> 
+            или напишите ручками
+        </p>
     </div>
     <app-upload-file (onUpload)="fileWasUpload($event)"></app-upload-file>
     <nav class="sidebar-nav" role="navigation">
