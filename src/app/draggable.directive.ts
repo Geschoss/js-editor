@@ -1,13 +1,21 @@
-import { Directive, EventEmitter, HostListener, ElementRef } from '@angular/core';
+import { Directive, EventEmitter,
+        AfterViewInit, OnDestroy,
+        HostListener, ElementRef, Output, Input } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
+import { TextModel } from './model';
 @Directive({
   selector: '[appDraggable]'
 })
-export class DraggableDirective {
+export class DraggableDirective implements AfterViewInit, OnDestroy {
+    @Output() onChange = new EventEmitter<any>();
+    @Input() item: TextModel = null;
+
     mouseup = new EventEmitter<MouseEvent>();
     mousedown = new EventEmitter<MouseEvent>();
     mousemove = new EventEmitter<MouseEvent>();
-    mousedrag: any;
+    mousedrag: Observable<any>;
+    sub: Subscription;
 
     @HostListener('document:mouseup', ['$event'])
     onMouseup(event: MouseEvent) {
@@ -24,43 +32,56 @@ export class DraggableDirective {
     onMousemove(event: MouseEvent) {
         this.mousemove.emit(event);
     }
-    
+
     constructor(public element: ElementRef) {
-        this.element.nativeElement.style.position = 'relative';
-        this.element.nativeElement.style.cursor = 'pointer';
+        this.element.nativeElement.style.position = 'absolute';
+
 
         this.mousedrag = this.mousedown.map((event: MouseEvent) => {
-            console.log("Относительно страницы top",this.element.nativeElement.getBoundingClientRect().top);
-            console.log("Относительно страницы left", this.element.nativeElement.getBoundingClientRect().left);
-            console.log("Относительно div offsetLeft", this.element.nativeElement.offsetLeft);
-            console.log("Относительно div offsetTop", this.element.nativeElement.offsetTop);
-            console.log(this.element.nativeElement.style.top);
-            console.log(this.element.nativeElement.style.left);
-            console.log("Y",event.clientY - this.element.nativeElement.getBoundingClientRect().top);
-            console.log("X",event.clientX - this.element.nativeElement.getBoundingClientRect().left);
-            console.log("Sart: offsetX,offsetY",event.offsetX,event.offsetY);
-            
             return {
-                offsetX: event.offsetX,
-                offsetY: event.offsetY,
+                startItemX: this.element.nativeElement.offsetLeft,
+                startItemY: this.element.nativeElement.offsetTop,
+                clientY: event.clientY,
+                clientX: event.clientX,
+
             };
         })
         .switchMap(
             imageOffset => this.mousemove.map((pos: MouseEvent) => ({
-                left: pos.clientX - imageOffset.offsetX,
-                top: pos.clientY - imageOffset.offsetY
+                left: imageOffset.startItemX + (pos.clientX - imageOffset.clientX),
+                top: imageOffset.startItemY +  (pos.clientY - imageOffset.clientY)
             }))
             .takeUntil(this.mouseup)
         );
+
+        this.mousedown
+        .switchMap(() => this.mouseup.take(1)
+        ).subscribe(()=> {
+            this.onChange.next({
+                        item: this.item,
+                        x: this.element.nativeElement.offsetLeft,
+                        y: this.element.nativeElement.offsetTop,
+                    })
+        });
+
     }
 
     ngOnInit() {
-        this.mousedrag.subscribe({
+        this.sub = this.mousedrag.subscribe({
             next: pos => {
                 this.element.nativeElement.style.top = pos.top + 'px';
                 this.element.nativeElement.style.left = pos.left + 'px';
             }
         });
+    }
+
+    ngAfterViewInit() {
+        this.element.nativeElement.style.top = this.item.y + 'px';
+        this.element.nativeElement.style.left = this.item.x + 'px';
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 
 }

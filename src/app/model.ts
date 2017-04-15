@@ -1,4 +1,4 @@
-export class TextObj {
+export class TextModel {
 	text: string;
 	x: number;
 	y: number;
@@ -11,6 +11,12 @@ export class Model {
     backgroundUrl: string;
     'x-size': number;
     'y-size': number;
-    content: TextObj[];
+    content: TextModel[];
 }
 
+
+export class CardModel {
+    backgroundUrl: string;
+    'x-size': number;
+    'y-size': number;
+}

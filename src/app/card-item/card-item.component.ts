@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { TextObj } from '../model';
+import { TextModel } from '../model';
 
 @Component({
   selector: 'app-card-item',
@@ -8,7 +8,7 @@ import { TextObj } from '../model';
   styleUrls: ['./card-item.component.css']
 })
 export class CardItemComponent implements OnInit {
-	@Input() item: TextObj = null;
+	@Input() item: TextModel = null;
 	constructor() { }
 
 	ngOnInit() {

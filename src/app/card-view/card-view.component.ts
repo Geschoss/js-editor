@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Model } from '../model';
+import { CardModel, TextModel  } from '../model';
 
 @Component({
   selector: 'app-card-view',
@@ -8,10 +8,9 @@ import { Model } from '../model';
   styleUrls: ['./card-view.component.css']
 })
 export class CardViewComponent implements OnInit {
-	@Input() model: Model = null;
+	@Input() cardModel: CardModel = null;
   	constructor() { }
 
 	ngOnInit() {
   	}
-
 }

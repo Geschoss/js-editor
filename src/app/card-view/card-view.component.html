@@ -1,15 +1,8 @@
-<div *ngIf="model" class="card-view">
+<div *ngIf="cardModel" class="card-view">
 	<div class="card"
-        [ngStyle]="{'background-image': 'url(' + model.backgroundUrl + ')',
-                    'width': model['x-size'] + 'px',
-                    'height': model['y-size'] + 'px'}">
-
-		<app-card-item appDraggable
-                    *ngFor="let item of model.content"
-						[item]="item">
-
-		</app-card-item>
-
+        [ngStyle]="{'background-image': 'url(' + cardModel.backgroundUrl + ')',
+                    'width': cardModel['x-size'] + 'px',
+                    'height': cardModel['y-size'] + 'px'}">
+		<ng-content></ng-content>
     </div>
-
 </div>

@@ -1,9 +1,9 @@
 <div class="sidebar" [class.show]="isOpen$ | async">
     <div class="sidebar-item">
-        <p class="center">Загрузите файл 
+        <p class="center">Загрузите файл
             <strong>.json(
             <a target="_blank" href="assets/exmpl.json">Пример</a>
-            )</strong> 
+            )</strong>
             или напишите ручками
         </p>
     </div>
@@ -12,7 +12,7 @@
         <textarea #textarea
             class="sidebar-textarea"
             [class.invalid]="invalid"
-            [value]="initJson"
+            [value]="model$ | async"
             (keyup)="onKey(textarea.value)">
         </textarea>
     </nav>

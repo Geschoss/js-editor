@@ -1,8 +1,6 @@
 <div class="wrap" [class.move]="isOpen$ | async">
-    <button class="sidebar-toggle"
-                (click)="onClickBtn()"
-                [class.move]="isOpen$ | async">
-        <i class="fa fa-bars" aria-hidden="true"></i> Import
+    <button class="sidebar-toggle" (click)="onClickBtn()" [class.move]="isOpen$ | async">
+        <i class="fa fa-bars" aria-hidden="true"></i> JSON
     </button>
     <header class="masthead" role="banner">
         <div class="container">
@@ -13,6 +11,18 @@
         </div>
     </header>
     <main class="content" role="main">
-        <app-card-view [model]="model$ | async"></app-card-view>
+        <div class="content__card">
+            <app-card-view [cardModel]="cardModel$ | async">
+                <app-card-item #drag
+                        appDraggable
+                        *ngFor="let textItem of textModels$ | async"
+                        [item]="textItem"
+                        (onChange)=onChangeItem($event)>
+                </app-card-item>
+            </app-card-view>
+        </div>
+        <div class="content__menu">
+            <app-edit-item [item]="selectedIted$ | async"></app-edit-item>
+        </div>
     </main>
 </div>

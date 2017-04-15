@@ -1,14 +1,14 @@
 .card-item {
 	position: absolute;
-	color: white;
-    border: 1px solid rgba(0,0,0,.15);
-    background-color: rgba(0, 147, 129, 0.61);
     cursor: grab;
      -webkit-user-select: none;
     /* user-select -- это нестандартное свойство */
-
     -moz-user-select: none;
     /* поэтому нужны префиксы */
-
     -ms-user-select: none;
+}
+
+.card-item.selected {
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: rgba(0, 147, 129, 0.61);
 }
