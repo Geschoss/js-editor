@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit,ViewChildren, Input, EventEmitter, Output,QueryList } from '@angular/core';
+import {Observable } from 'rxjs';
 import { TextModel } from '../model';
-
 
 @Component({
   selector: 'app-edit-item',
@@ -8,19 +8,31 @@ import { TextModel } from '../model';
   styleUrls: ['./edit-item.component.css']
 })
 export class EditItemComponent implements OnInit, AfterViewInit {
-	@Input() item: TextModel = null;
+  	@Input() item: TextModel = null;
+    @Input() open: boolean = true;
+    @Output() onOpenClick: EventEmitter<boolean> = new  EventEmitter<boolean>();
+    @Output() onAddClick: EventEmitter<boolean> = new  EventEmitter<boolean>();
   	constructor() {
 
   	}
 
   	ngOnInit() {
+
   	}
 
    	ngAfterViewInit() {
    	}
 
-   	onSubmit() {
-   		console.log(this.item);
-   	}
+    onOpen() {
+        this.onOpenClick.emit(true);
+    }
+
+    onAdd() {
+        this.onAddClick.next(true);
+    }
+
+    sizeChanged(event: any) {
+        console.log(event);
+    }
 
 }

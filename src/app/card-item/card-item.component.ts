@@ -14,7 +14,4 @@ export class CardItemComponent implements OnInit {
 	ngOnInit() {
 	}
 
-    onDragStart(event: any) {
-        console.log(event);
-    }
 }

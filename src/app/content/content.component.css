@@ -83,20 +83,28 @@
     flex: 3;
     overflow: auto;
     margin: 0.5rem;
-    border-radius: 4px;
-    background: white;
-    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-
+    padding: 0.5rem;
+    max-width: 130vh;
+    max-height: 85vh;
 }
 
-.content__menu {
-    flex: 1;
+.edit-menu {
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    position: absolute;
+    top: 4rem;
+    right: -13rem;
     min-width: 13rem;
     min-height: 300px;
-    height: 300px;
+    width: 310px;
     margin: 0.5rem;
     border-radius: 4px;
-    background: #009381;
+    background: rgba(0, 147, 129, 0.65);
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
+.edit-menu.show {
+   -webkit-transform: translateX(-13rem); */
+    -ms-transform: translateX(-13rem);
+    transform: translateX(-13rem);
+}

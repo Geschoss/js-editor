@@ -12,3 +12,7 @@
     border: 1px solid rgba(0,0,0,.15);
     background-color: rgba(0, 147, 129, 0.61);
 }
+
+.card-item__body {
+	white-space: nowrap;
+}

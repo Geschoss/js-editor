@@ -1,5 +1,5 @@
-<div class="wrap" [class.move]="isOpen$ | async">
-    <button class="sidebar-toggle" (click)="onClickBtn()" [class.move]="isOpen$ | async">
+<div class="wrap" [class.move]="isSidebarOpen$ | async">
+    <button class="sidebar-toggle" (click)="onClickBtn()" [class.move]="isSidebarOpen$ | async">
         <i class="fa fa-bars" aria-hidden="true"></i> JSON
     </button>
     <header class="masthead" role="banner">
@@ -13,16 +13,15 @@
     <main class="content" role="main">
         <div class="content__card">
             <app-card-view [cardModel]="cardModel$ | async">
-                <app-card-item #drag
-                        appDraggable
-                        *ngFor="let textItem of textModels$ | async"
-                        [item]="textItem"
-                        (onChange)=onChangeItem($event)>
+                <app-card-item #drag appDraggable *ngFor="let textItem of textModels$ | async" [item]="textItem" (onChange)=onChangeItem($event)>
                 </app-card-item>
             </app-card-view>
         </div>
-        <div class="content__menu">
-            <app-edit-item [item]="selectedIted$ | async"></app-edit-item>
-        </div>
     </main>
+    <div class="edit-menu" [class.show]="isEditMenuOpen$ | async">
+        <app-edit-item (onOpenClick)="onEditMenuClick()"
+                        (onAddClick)="onAddClick()"
+                        [item]="selectedIted$ | async"
+                        [open]="isEditMenuOpen$ | async"></app-edit-item>
+    </div>
 </div>

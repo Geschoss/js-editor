@@ -1,11 +1,23 @@
 import { Injectable } from '@angular/core';
 import { CardModel, TextModel, Model } from '../model';
 import { Observable, BehaviorSubject } from 'rxjs';
+
+
+const createNewItem = () =>({
+    text: "mew text",
+    size: 40,
+    color: "white",
+    font: "arial",
+    x: 0,
+    y: 0
+});
+
+
 @Injectable()
 export class DbService {
 	private cardModel$: BehaviorSubject<CardModel> = new BehaviorSubject(null);
 	private textModels$: BehaviorSubject<TextModel[]> = new BehaviorSubject(null);
-  private selectedItem$: BehaviorSubject<TextModel> = new BehaviorSubject(null);
+    private selectedItem$: BehaviorSubject<TextModel> = new BehaviorSubject(null);
   	constructor() { }
 
     setModel(model: Model) {
@@ -43,14 +55,7 @@ export class DbService {
     }
 
     updateItem(message) {
-        /*
-        Observable.from(item)
-        .withLatestFrom(this.textModels$)
-        .subscribe(([first, second]) => {
-            return `First Source (5s): ${first} Second Source (1s): ${second}`;
-        });
-        */
-        this.textModels$
+         this.textModels$
         .take(1)
         .subscribe((items: TextModel[]) => {
             let index = items.indexOf(message.item);
@@ -64,5 +69,19 @@ export class DbService {
                 this.setSelectedItem(newItem);
             }
         });
+    }
+
+
+    addItem() {
+        console.log("click");
+        this.textModels$
+        .take(1)
+        .subscribe(items => {
+            console.log("op");
+            let newItem = createNewItem();
+            items.push(newItem);
+            this.setTextModels(items);
+            this.setSelectedItem(newItem);
+        })
     }
 }

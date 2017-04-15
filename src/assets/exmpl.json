@@ -1,22 +1,22 @@
 {
   "backgroundUrl": "http://nakolenke.club/uploads/posts/2016-09/1473248830_kotiki06.jpg",
-  "x-size": 1500,
+  "x-size": 1000,
   "y-size": 500,
   "content": [
     {
-      "text": "first",
-      "x": 100,
-      "y": 59,
+      "text": "милый котик!",
+      "x": 9,
+      "y": 267,
       "size": 54,
-      "color": "#268BD2",
+      "color": "green",
       "font": "arial, verdana, sans-serif"
     },
     {
-      "text": "second",
-      "x": 200,
-      "y": 209,
-      "size": 154,
-      "color": "#BF616A",
+      "text": "Доброта",
+      "x": 11,
+      "y": -8,
+      "size": "54",
+      "color": "white",
       "font": "arial, verdana, sans-serif"
     }
   ]

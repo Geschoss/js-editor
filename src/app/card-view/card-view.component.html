@@ -1,8 +1,6 @@
-<div *ngIf="cardModel" class="card-view">
-	<div class="card"
-        [ngStyle]="{'background-image': 'url(' + cardModel.backgroundUrl + ')',
-                    'width': cardModel['x-size'] + 'px',
-                    'height': cardModel['y-size'] + 'px'}">
-		<ng-content></ng-content>
-    </div>
+<div *ngIf="cardModel" class="card"
+			[ngStyle]="{'background-image': 'url(' + cardModel.backgroundUrl + ')',
+                    'width': wedthImg + 'px',
+                    'height': heightImg + 'px'}">
+    <ng-content></ng-content>
 </div>

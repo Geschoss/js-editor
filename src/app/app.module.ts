@@ -4,7 +4,7 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { SidebarToggleService } from './services/sidebar-toggle.service';
+import { LayoutService } from './services/layout.service';
 import { JsonConverterService } from './services/json-converter.service';
 import { DbService } from './services/db.service';
 
@@ -36,7 +36,7 @@ import { EditItemComponent } from './edit-item/edit-item.component';
     FormsModule,
   ],
   providers: [
-    SidebarToggleService,
+    LayoutService,
     JsonConverterService,
     DbService
   ],

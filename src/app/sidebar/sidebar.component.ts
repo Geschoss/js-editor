@@ -1,13 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { SidebarToggleService } from '../services/sidebar-toggle.service';
+import { LayoutService } from '../services/layout.service';
 import { JsonConverterService } from '../services/json-converter.service';
 import { DbService } from '../services/db.service';
 import { Model, TextModel } from '../model';
 
 const MODEL = {
-  "backgroundUrl": "http://nakolenke.club/uploads/posts/2016-09/1473248830_kotiki06.jpg",
+  "backgroundUrl": "https://cdnb.artstation.com/p/assets/images/images/000/161/865/large/tuomas-korpi-beachbar-04.jpg?1443930719",
   "x-size": 1000,
   "y-size": 500,
   "content": [
@@ -41,10 +41,10 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   	private isOpen$: Observable<boolean>;
     private model$: Observable<string>;
     private invalid: boolean = false;
-  	constructor(private sidebarToggleService: SidebarToggleService,
+  	constructor(private layoutService: LayoutService,
                   private jsonConverterService: JsonConverterService,
                   private dbService: DbService) {
-  		this.isOpen$ = sidebarToggleService.getIsOpen();
+  		this.isOpen$ = layoutService.getIsSidebarOpen();
 
 
         this.model$ = Observable
