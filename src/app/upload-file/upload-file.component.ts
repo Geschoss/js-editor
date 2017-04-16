@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewInit,OnDestroy } from "@angular/core";
+import { Component, OnInit, Output, Input, EventEmitter, ViewChild, AfterViewInit,OnDestroy } from "@angular/core";
 import { DropzoneDirective } from '../dropzone.directive';
 import { Subscription } from "rxjs";
 
@@ -8,6 +8,7 @@ import { Subscription } from "rxjs";
   styleUrls: ['./upload-file.component.css']
 })
 export class UploadFileComponent implements OnInit, AfterViewInit, OnDestroy {
+    @Input() accept: string = "";
     @ViewChild(DropzoneDirective) dropzone: DropzoneDirective;
     @ViewChild('hiddenInput') hiddenInput;
     @Output() onUpload: EventEmitter<File[]> = new EventEmitter();

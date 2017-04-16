@@ -14,7 +14,8 @@
 }
 
 .file-over {
-    border-color: #F44336
+    border-color: #F44336;
+    background-color: rgb(154, 236, 0);
 }
 
 .dropzone-link {

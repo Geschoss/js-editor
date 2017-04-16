@@ -1,6 +1,6 @@
 <div class="upload-container">
     <input #hiddenInput type="file" class="hiddenInput" 
-                    (change)="fileChange($event)" accept=".json">
+                    (change)="fileChange($event)" [accept]="accept">
     <div class="dropzone"
             #dropzone
             appDropzone

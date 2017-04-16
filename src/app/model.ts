@@ -8,15 +8,11 @@ export class TextModel {
 }
 
 export class Model {
-    backgroundUrl: string;
-    'x-size': number;
-    'y-size': number;
+    background: CardModel;
     content: TextModel[];
 }
 
 
 export class CardModel {
     backgroundUrl: string;
-    'x-size': number;
-    'y-size': number;
 }

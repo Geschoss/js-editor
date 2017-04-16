@@ -59,8 +59,10 @@ export class DraggableDirective implements AfterViewInit, OnDestroy {
         ).subscribe(()=> {
             this.onChange.next({
                         item: this.item,
-                        x: this.element.nativeElement.offsetLeft,
-                        y: this.element.nativeElement.offsetTop,
+                        change: {
+                            x: this.element.nativeElement.offsetLeft,
+                            y: this.element.nativeElement.offsetTop
+                        }
                     })
         });
 

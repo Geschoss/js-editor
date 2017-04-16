@@ -7,7 +7,7 @@
             или напишите ручками
         </p>
     </div>
-    <app-upload-file (onUpload)="fileWasUpload($event)"></app-upload-file>
+    <app-upload-file [accept]="accept" (onUpload)="fileWasUpload($event)"></app-upload-file>
     <nav class="sidebar-nav" role="navigation">
         <textarea #textarea
             class="sidebar-textarea"

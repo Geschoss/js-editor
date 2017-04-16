@@ -12,7 +12,7 @@ const createNewItem = () =>({
     y: 0
 });
 
-
+// TODO можно ужеразносить на 2 файла
 @Injectable()
 export class DbService {
 	private cardModel$: BehaviorSubject<CardModel> = new BehaviorSubject(null);
@@ -22,11 +22,7 @@ export class DbService {
 
     setModel(model: Model) {
         this.setTextModels(model.content);
-        this.setCardModel({
-            backgroundUrl: model.backgroundUrl,
-            'x-size': model['x-size'],
-            'y-size': model['y-size']
-        });
+        this.setCardModel(model.background);
         this.setSelectedItem(null);
     }
 
@@ -60,10 +56,7 @@ export class DbService {
         .subscribe((items: TextModel[]) => {
             let index = items.indexOf(message.item);
             if (index !== -1) {
-                let newItem = Object.assign({},message.item,{
-                    x: message.x,
-                    y: message.y,
-                });
+                let newItem = Object.assign({},message.item,message.change);
                 items[index] = newItem;
                 this.setTextModels(items);
                 this.setSelectedItem(newItem);
@@ -73,15 +66,23 @@ export class DbService {
 
 
     addItem() {
-        console.log("click");
         this.textModels$
         .take(1)
         .subscribe(items => {
-            console.log("op");
             let newItem = createNewItem();
             items.push(newItem);
             this.setTextModels(items);
             this.setSelectedItem(newItem);
         })
     }
+
+    updateBackround(message){
+        this.cardModel$
+        .take(1)
+        .subscribe((card: CardModel) => {
+            let newCard = Object.assign({},card,message);
+            this.setCardModel(newCard);
+        });
+    }
+
 }

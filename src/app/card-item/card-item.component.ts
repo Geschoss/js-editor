@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { TextModel } from '../model';
 
@@ -7,11 +7,6 @@ import { TextModel } from '../model';
   templateUrl: './card-item.component.html',
   styleUrls: ['./card-item.component.css']
 })
-export class CardItemComponent implements OnInit {
+export class CardItemComponent {
 	@Input() item: TextModel = null;
-	constructor() { }
-
-	ngOnInit() {
-	}
-
 }

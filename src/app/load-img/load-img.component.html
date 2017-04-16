@@ -1,0 +1,17 @@
+<div class="load-item">
+    <div class="load-item__header">
+        <button class="load-item__btn up-btn" (click)="onUp()">
+            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+        </button>
+        Загрузить:
+    </div>
+    <div class="load-item__body">
+        <div class="form-group">
+            <label class="edit-label">URL</label>
+            <input type="text"
+                    (input)="urlInputHandle($event)"
+                        class="form-control"
+                        [value]="">
+        </div>
+    </div>
+</div>

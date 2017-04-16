@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,OnChanges } from '@angular/core';
+import { Component,  Input,OnChanges } from '@angular/core';
 
 import { CardModel, TextModel  } from '../model';
 
@@ -7,25 +7,21 @@ import { CardModel, TextModel  } from '../model';
   templateUrl: './card-view.component.html',
   styleUrls: ['./card-view.component.css']
 })
-export class CardViewComponent implements OnInit,OnChanges {
+export class CardViewComponent implements OnChanges {
 	@Input() cardModel: CardModel = null;
   	private heightImg: number;
   	private wedthImg: number;
 
-  	constructor() { }
-
-	ngOnInit() {
-  	}
 
   	ngOnChanges(SimpleChanges) {
   		this.setSizePropery(SimpleChanges);
-
   	}
 
   	setSizePropery(SimpleChanges) {
-  		let cardModel: CardModel = SimpleChanges.cardModel.currentValue;
-  		let url: string = cardModel.backgroundUrl;
-  		let img =  new Image();
+  		let cardModel: CardModel = SimpleChanges.cardModel.currentValue,
+  		    url: string = cardModel.backgroundUrl,
+  		    img =  new Image();
+
   		img.onload = () => {
   			this.heightImg = img.height;
       		this.wedthImg = img.width;

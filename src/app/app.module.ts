@@ -17,6 +17,7 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { DropzoneDirective } from './dropzone.directive';
 import { DraggableDirective } from './draggable.directive';
 import { EditItemComponent } from './edit-item/edit-item.component';
+import { LoadImgComponent } from './load-img/load-img.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { EditItemComponent } from './edit-item/edit-item.component';
     DropzoneDirective,
     DraggableDirective,
     EditItemComponent,
+    LoadImgComponent,
   ],
   imports: [
     BrowserModule,

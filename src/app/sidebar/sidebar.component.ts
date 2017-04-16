@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { LayoutService } from '../services/layout.service';
@@ -6,10 +6,11 @@ import { JsonConverterService } from '../services/json-converter.service';
 import { DbService } from '../services/db.service';
 import { Model, TextModel } from '../model';
 
+//hard code
 const MODEL = {
-  "backgroundUrl": "https://cdnb.artstation.com/p/assets/images/images/000/161/865/large/tuomas-korpi-beachbar-04.jpg?1443930719",
-  "x-size": 1000,
-  "y-size": 500,
+  "background": {
+    "backgroundUrl":  "https://cdnb.artstation.com/p/assets/images/images/000/161/865/large/tuomas-korpi-beachbar-04.jpg?1443930719",
+  },
   "content": [
     {
       "text": "first",
@@ -29,7 +30,7 @@ const MODEL = {
     }
   ]
 };
-
+//hard code
 
 
 @Component({
@@ -37,15 +38,16 @@ const MODEL = {
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit, AfterViewInit {
+export class SidebarComponent  {
+    private accept: string = ".json";
   	private isOpen$: Observable<boolean>;
     private model$: Observable<string>;
     private invalid: boolean = false;
   	constructor(private layoutService: LayoutService,
                   private jsonConverterService: JsonConverterService,
                   private dbService: DbService) {
-  		this.isOpen$ = layoutService.getIsSidebarOpen();
 
+        this.isOpen$ = layoutService.getIsSidebarOpen();
 
         this.model$ = Observable
         .combineLatest(dbService.getCardModel(),dbService.getTextModels())
@@ -54,7 +56,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
             return JSON.stringify( // TODO сделать лаконичкие
                     Object.assign(
                         {},
-                        latestValues[0],
+                        { background: latestValues[0]},
                         { content: latestValues[1]}
                     ),
                     undefined, 2);
@@ -63,14 +65,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
         //hard code
         this.convertAndSave(JSON.stringify(MODEL, undefined, 2));
         //hard code
-  	}
-
-  	ngOnInit() {
-
-  	}
-
-  	ngAfterViewInit() {
-
   	}
 
     onKey(value: string) {
