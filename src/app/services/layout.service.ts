@@ -4,8 +4,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
 @Injectable()
 export class LayoutService {
 	private sidebarOpen: boolean = false;
-    private editMenuOpen: boolean = true;
-    private loadMenuOpen: boolean = true;
+    private editMenuOpen: boolean = false;
+    private loadMenuOpen: boolean = false;
 	private isLoadMenuOpen$: BehaviorSubject<boolean> = new BehaviorSubject(this.loadMenuOpen);
     private isSidebarOpen$: BehaviorSubject<boolean> = new BehaviorSubject(this.sidebarOpen);
     private isEditMenuOpen$: BehaviorSubject<boolean> = new BehaviorSubject(this.editMenuOpen);
