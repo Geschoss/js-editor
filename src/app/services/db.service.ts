@@ -6,7 +6,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 const createNewItem = () =>({
     text: "mew text",
     size: 40,
-    color: "white",
+    color: "#FFFFFF",
     font: "arial",
     x: 0,
     y: 0

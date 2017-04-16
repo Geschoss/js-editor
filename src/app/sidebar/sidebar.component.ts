@@ -9,24 +9,48 @@ import { Model, TextModel } from '../model';
 //hard code
 const MODEL = {
   "background": {
-    "backgroundUrl":  "https://cdnb.artstation.com/p/assets/images/images/000/161/865/large/tuomas-korpi-beachbar-04.jpg?1443930719",
+    "backgroundUrl": "https://cdnb.artstation.com/p/assets/images/images/000/161/865/large/tuomas-korpi-beachbar-04.jpg?1443930719"
   },
   "content": [
     {
-      "text": "first",
-      "x": 100,
-      "y": 59,
+      "text": "ООО \"Парадайз\"",
+      "x": 782,
+      "y": 137,
       "size": 54,
-      "color": "red",
+      "color": "#ed3939",
       "font": "arial, verdana, sans-serif"
     },
     {
-      "text": "second",
-      "x": 200,
-      "y": 209,
-      "size": 154,
-      "color": "white",
+      "text": "Добро пожаловать!",
+      "x": 1,
+      "y": -49,
+      "size": 143,
+      "color": "#1c27ec",
       "font": "arial, verdana, sans-serif"
+    },
+    {
+      "text": "бесплатный завтрак*",
+      "size": 40,
+      "color": "#f10000",
+      "font": "arial",
+      "x": 9,
+      "y": 227
+    },
+    {
+      "text": "*без кофе",
+      "size": 40,
+      "color": "#00ed36",
+      "font": "arial",
+      "x": 21,
+      "y": 702
+    },
+    {
+      "text": "телефон",
+      "size": 40,
+      "color": "#000000",
+      "font": "arial",
+      "x": 821,
+      "y": 704
     }
   ]
 };
