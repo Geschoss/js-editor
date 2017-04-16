@@ -9,4 +9,5 @@ import { TextModel } from '../model';
 })
 export class CardItemComponent {
 	@Input() item: TextModel = null;
+    @Input() selected: boolean = false;
 }

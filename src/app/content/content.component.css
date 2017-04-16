@@ -100,27 +100,32 @@
     overflow: auto;
     margin: 0.5rem;
     padding: 0.5rem;
+    margin: 0.5rem;
 }
 
-.edit-menu {
-    -webkit-transition: -webkit-transform .3s ease-in-out;
+
+.dialog-menu {
+     transition: -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
-    position: fixed;
-    top: 4rem;
-    right: -15rem;
-    min-width: 13rem;
-    min-height: 300px;
-    width: 350px;
-    margin: 0.5rem;
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
     border-radius: 4px;
     background: rgba(0, 147, 129, 0.65);
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    position: fixed;
+    min-width: 13rem;
+}
+
+.edit-menu {
+    top: 4rem;
+    right: -15rem;
+    min-height: 320px;
+    width: 350px;
 }
 
 .edit-menu.show {
-   -webkit-transform: translateX(-15rem); */
-    -ms-transform: translateX(-15rem);
-    transform: translateX(-15rem);
+   -webkit-transform: translateX(-16rem); */
+    -ms-transform: translateX(-16rem);
+    transform: translateX(-16rem);
 }
 
 .vovka {
@@ -142,16 +147,9 @@
 }
 
 .load-menu {
-    transition: -webkit-transform .3s ease-in-out;
-    transition: transform .3s ease-in-out;
-    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
     position: fixed;
     top: -17rem;
-    right: 21rem;
-    min-width: 13rem;
+    right: 19rem;
     width: 350px;
-    margin: 0.5rem;
-    border-radius: 4px;
-    background: rgba(0, 147, 129, 0.65);
-    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    min-height: 130px;
 }

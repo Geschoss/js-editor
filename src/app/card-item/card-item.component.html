@@ -1,7 +1,7 @@
 <div class="card-item">
     <div class="card-item__body" [ngStyle]="{'font-size': item.size + 'px',
                     'font-family': item.font,
-                    'color': item.color}">
+                    'color': item.color}" [class.selected]="selected">
         {{item.text}}
     </div>
 </div>

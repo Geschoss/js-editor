@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SidebarToggleService } from './sidebar-toggle.service';
+import { LayoutService } from './layout.service';
 
-describe('SidebarToggleService', () => {
+describe('LayoutService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SidebarToggleService]
+      providers: [LayoutService]
     });
   });
 
-  it('should ...', inject([SidebarToggleService], (service: SidebarToggleService) => {
+  it('should ...', inject([LayoutService], (service: LayoutService) => {
     expect(service).toBeTruthy();
   }));
 });

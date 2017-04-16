@@ -18,7 +18,6 @@ export class DbService {
 	private cardModel$: BehaviorSubject<CardModel> = new BehaviorSubject(null);
 	private textModels$: BehaviorSubject<TextModel[]> = new BehaviorSubject(null);
     private selectedItem$: BehaviorSubject<TextModel> = new BehaviorSubject(null);
-  	constructor() { }
 
     setModel(model: Model) {
         this.setTextModels(model.content);

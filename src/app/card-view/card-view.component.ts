@@ -21,7 +21,6 @@ export class CardViewComponent implements OnChanges {
   		let cardModel: CardModel = SimpleChanges.cardModel.currentValue,
   		    url: string = cardModel.backgroundUrl,
   		    img =  new Image();
-
   		img.onload = () => {
   			this.heightImg = img.height;
       		this.wedthImg = img.width;

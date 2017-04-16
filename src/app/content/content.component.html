@@ -16,15 +16,20 @@
     <main class="content" role="main">
         <div class="content__card">
             <app-card-view [cardModel]="cardModel$ | async">
-                <app-card-item #drag appDraggable *ngFor="let textItem of textModels$ | async" [item]="textItem" (onChange)=onItemChange($event)>
+                <app-card-item #drag 
+                            appDraggable 
+                            *ngFor="let textItem of textModels$ | async" 
+                            [item]="textItem"
+                            [selected]="(selectedIted$ | async)  === textItem" 
+                            (onChange)=onItemChange($event)>
                 </app-card-item>
             </app-card-view>
         </div>
     </main>
-    <div class="edit-menu" [class.show]="isEditMenuOpen$ | async">
+    <div class="dialog-menu edit-menu" [class.show]="isEditMenuOpen$ | async">
         <app-edit-item (onOpenClick)="onEditMenuClick()" (onAddClick)="onAddClick()" (onItemChange)="onItemChange($event)" [item]="selectedIted$ | async" [open]="isEditMenuOpen$ | async"></app-edit-item>
     </div>
-    <div class="load-menu" [class.show]="isLoadMenuOpen$ | async">
+    <div class="dialog-menu load-menu" [class.show]="isLoadMenuOpen$ | async">
         <app-load-img (onUpClick)="onLoadMenuUpClick()"
                         (onUrlInput)="onUrlChage($event)"></app-load-img>
     </div>
