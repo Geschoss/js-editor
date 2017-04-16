@@ -1,0 +1,23 @@
+{
+  "backgroundUrl": "http://nakolenke.club/uploads/posts/2016-09/1473248830_kotiki06.jpg",
+  "x-size": 1000,
+  "y-size": 500,
+  "content": [
+    {
+      "text": "милый котик!",
+      "x": 9,
+      "y": 267,
+      "size": 54,
+      "color": "green",
+      "font": "arial, verdana, sans-serif"
+    },
+    {
+      "text": "Доброта",
+      "x": 11,
+      "y": -8,
+      "size": "54",
+      "color": "white",
+      "font": "arial, verdana, sans-serif"
+    }
+  ]
+}
